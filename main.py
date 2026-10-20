@@ -17,6 +17,6 @@ def members(e):
     members = (Grade7| Grade8 | Grade9 | Grade10)
     members.add(full_name)
 
-    display(f'List of members {members} amount of members {le(members)}', target='output')
+    display(f'List of members {members} amount of members {len(members)}', target='output')
 
 
