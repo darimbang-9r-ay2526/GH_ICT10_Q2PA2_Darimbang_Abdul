@@ -1,0 +1,164 @@
+/* Working with Sets: styles.css
+   Loads after Bootstrap, so these rules take precedence. */
+
+:root {
+  --paper: #eef2f7;
+  --card: #ffffff;
+  --ink: #14213d;
+  --ink-soft: #4a5876;
+  --line: #c9d3e3;
+  --accent: #2745d6;
+  --accent-dark: #1b33a8;
+  --highlight: #ffe08a;
+
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 3rem 1.25rem 4rem;
+  min-height: 100vh;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+}
+
+/* Page title, drawn above the form without needing extra HTML */
+body::before {
+  content: "Working with Sets";
+  display: block;
+  max-width: 28rem;
+  margin: 0 auto 1.5rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 6vw, 2.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+/* Form */
+form {
+  display: grid;
+  max-width: 28rem;
+  margin: 0 auto;
+  padding: 1.75rem;
+  background: var(--card);
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  box-shadow: 6px 6px 0 var(--accent);
+}
+
+form br {
+  display: none; /* spacing comes from the grid instead */
+}
+
+label {
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+label:first-of-type {
+  margin-top: 0;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 0.65rem 0.8rem;
+  font: inherit;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1.5px solid var(--line);
+  border-radius: 4px;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+input[type="text"]:hover {
+  border-color: var(--ink-soft);
+}
+
+input[type="text"]:focus {
+  outline: none;
+  background: var(--card);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(39, 69, 214, 0.25);
+}
+
+input[type="button"] {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1rem;
+  font: inherit;
+  font-weight: 600;
+  color: #ffffff;
+  background: var(--accent);
+  border: 2px solid var(--accent);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+input[type="button"]:hover {
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+}
+
+input[type="button"]:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+
+input[type="button"]:active {
+  transform: translateY(1px);
+}
+
+/* Output */
+#output {
+  max-width: 28rem;
+  margin: 2rem auto 0;
+}
+
+#output:empty {
+  display: none;
+}
+
+#output > div {
+  padding: 1.25rem 1.5rem;
+  background: var(--card);
+  border-left: 6px solid var(--highlight);
+  border-radius: 0 6px 6px 0;
+  color: var(--ink);
+  line-height: 1.7;
+  overflow-wrap: anywhere; /* the printed set is one long string */
+}
+
+/* Small screens */
+@media (max-width: 480px) {
+  body {
+    padding-top: 2rem;
+  }
+
+  form {
+    padding: 1.25rem;
+    box-shadow: 4px 4px 0 var(--accent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
